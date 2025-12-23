@@ -13,7 +13,11 @@ export async function getLatestProducts() {
     },
   });
 
-  return convertToPlainObject(data);
+  return convertToPlainObject(data).map((product) => ({
+    ...product,
+    price: product.price.toString(),
+    rating: product.rating.toString(),
+  }));
 }
 
 // get single product by its slug
