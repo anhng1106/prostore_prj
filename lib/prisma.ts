@@ -1,5 +1,10 @@
+export const runtime = "nodejs";
+
 import "server-only";
-import "dotenv/config";
+import dotenv from "dotenv";
+
+// Load .env before using process.env
+dotenv.config({ path: ".env" });
 
 import ws from "ws";
 import { neonConfig } from "@neondatabase/serverless";
